@@ -1,12 +1,12 @@
 import React, { PropTypes } from "react";
 
-export default function VehicleInfo() {
+export default function VehicleInfo({model, name, manufacturer, cost }) {
 	return (
 		<div className="vehicle-info">
-			<h5>Snowspeeder</h5>
-			<p>Model: t-f7 airspeeder</p>
-			<p>Cost: unknown credits</p>
-			<p>Manufacturer: Incom corporation</p>
+			<h5>{ name }</h5>
+			<p>Model: { model }</p>
+			<p>Cost: { cost }</p>
+			<p>Manufacturer: { manufacturer }</p>
 		</div>
 	);
 }

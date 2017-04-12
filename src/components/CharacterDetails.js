@@ -4,22 +4,30 @@ import "./CharacterDetails.css";
 
 import VehicleInfo from "./VehicleInfo";
 
-export default function CharacterDetails() {
+export default function CharacterDetails( { name, born, gender, hairColor, eyeColor, filmCount, vehicles } ) {
+	const vehicleInfo = vehicles.map(v=>{
+		return (
+		<VehicleInfo
+			key={ v.url }
+			model={ v.model }
+			name={ v.name }
+			manufacturer={ v.manufacturer }
+			cost={ v.cost_in_credits } />
+	)})
 	return (
 		<div className="character-details">
-			<h1>Luke Skywalker</h1>
+			<h1>{ name }</h1>
 			<h3>Stats</h3>
 			<ul className="character-details__stats-list">
-				<li>Born 19BBY</li>
-				<li>Gender: male</li>
-				<li>Hair Color: blond</li>
-				<li>Eye Color: blue</li>
-				<li>Active in 5 films</li>
+				<li>Born { born }</li>
+				<li>Gender: { gender }</li>
+				<li>Hair Color: { hairColor }</li>
+				<li>Eye Color: { eyeColor }</li>
+				<li>Active in { filmCount } films</li>
 			</ul>
 
 			<h3>Vehicles</h3>
-			<VehicleInfo />
-			<VehicleInfo />
+			{ vehicleInfo }
 		</div>
 	);
 }

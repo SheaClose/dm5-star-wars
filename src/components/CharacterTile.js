@@ -2,13 +2,13 @@ import React, { PropTypes } from "react";
 
 import "./CharacterTile.css";
 
-export default function CharacterTile() {
+export default function CharacterTile( { name, birthYear, selectCharacter, index } ) {
 	return (
-		<div className="character-tile">
+		<div className="character-tile" onClick={ () => selectCharacter(index) }>
 			<h3 className="character-tile__name">
-				Luke Skywalker
+				{ name }
 			</h3>
-			<p className="character-tile__info">Born 19BBY</p>
+			<p className="character-tile__info">Born: { birthYear }</p>
 		</div>
 	);
 }
